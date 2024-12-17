@@ -1,9 +1,9 @@
 class UserManager {
 	constructor(userRepository) {
-		this.userRepository = userRepository;
+		// Initialiser la propriété userRepository avec userRepository
 	}
 
 	getUser(userID) {
-		return this.userRepository.get(userID);
+		// Retourner le résultat de userRepository.get(userID)
 	}
 }

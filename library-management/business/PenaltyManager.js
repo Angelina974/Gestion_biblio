@@ -1,13 +1,13 @@
 class PenaltyManager {
 	constructor(penaltyRepository) {
-		this.penaltyRepository = penaltyRepository;
+		// Initialiser la propriété de pénalité
 	}
 
 	calculatePenalty(overdueDays) {
-		return overdueDays * 1; // 1€ per overdue day
+		// Retourner overdueDays (les jours de retard) multiplié par 1
 	}
 
 	savePenalty(userID, amount) {
-		this.penaltyRepository.save(userID, amount);
+		// Enregistrer la penalité pour l'user
 	}
 }

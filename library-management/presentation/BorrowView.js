@@ -4,11 +4,6 @@ class BorrowView {
 	}
 
 	requestLoan(userID, bookID) {
-		try {
-			this.borrowService.registerLoan(userID, bookID);
-			console.log("Loan registered successfully.");
-		} catch (exception) {
-			console.log("Error: " + exception.message);
-		}
+		// Enregistre une demande d'emprunt pour un utilisateur et un livre donnés.
 	}
 }

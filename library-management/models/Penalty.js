@@ -1,6 +1,8 @@
 class Penalty {
-	constructor(userID, amount) {
-		this.userID = userID;
-		this.amount = amount;
-	}
+	/* PROPRIETES */
+	// utilisateurID: Entier
+	// montantPenalite: Entier
+
+	/* CONSTRUCTEUR */
+	constructor() {}
 }

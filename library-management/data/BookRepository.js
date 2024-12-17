@@ -1,20 +1,17 @@
 class BookRepository {
 	constructor() {
-		this.books = []; // Simulate a database
+		// Simule une base de données de livres
 	}
 
 	get(bookID) {
-		return this.books.find((book) => book.bookID === bookID);
+		// Retourne le livre dont l'identifiant est bookID
 	}
 
 	update(book) {
-		const index = this.books.findIndex((b) => b.bookID === book.bookID);
-		if (index !== -1) {
-			this.books[index] = book;
-		}
+		// Met à jour le livre dans la base de données avec la méthode findIndex
 	}
 
 	listAvailable() {
-		return this.books.filter((book) => !book.isBorrowed);
+		// Retourne la liste des livres non empruntés avec la méthode filter
 	}
 }

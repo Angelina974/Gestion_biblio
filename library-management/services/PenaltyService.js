@@ -1,17 +1,17 @@
 class PenaltyService {
 	constructor(penaltyManager) {
-		this.penaltyManager = penaltyManager;
+		//Initialiser la propriété de penalité
 	}
 
 	getPenalties(userID) {
-		return this.penaltyManager.getPenalties(userID);
+		//Retourner le résultat de pénalité avec l'id de l'user
 	}
 
 	calculatePenalty(overdueDays) {
-		return this.penaltyManager.calculatePenalty(overdueDays);
+		// Retourner la penalité par rapport aux jours de penalité
 	}
 
 	registerPenalty(userID, amount) {
-		this.penaltyManager.savePenalty(userID, amount);
+		// Enregistrer la penalité pour l'user
 	}
 }

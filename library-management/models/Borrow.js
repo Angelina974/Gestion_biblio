@@ -1,12 +1,16 @@
 class Borrow {
-	constructor(userID, bookID, borrowDate) {
-		this.userID = userID;
-		this.bookID = bookID;
-		this.borrowDate = borrowDate;
-		this.returnDate = null;
-	}
+	/* PROPRIETES */
+	// id: Entier
+	// livreID: Entier
+	// utilisateurID: Entier
+	// dateEmprunt: Date
+	// dateRetourner: Date
+	// estRetourné: Booléen
 
-	returnBook() {
-		this.returnDate = Date.now();
-	}
+	/* CONSTRUCTEUR */
+	constructor() {}
+
+	/* METHODE */
+	// livreRetourner()
+	// RETOURNER estRetourné
 }

@@ -4,11 +4,10 @@ class BookView {
 	}
 
 	displayAvailableBooks() {
-		const books = this.bookService.listAvailableBooks();
-		this.display(books);
+		// Récupère et affiche les livres disponibles en utilisant le service.
 	}
 
 	display(books) {
-		console.log(books);
+		// Affiche la liste des livres fournis en argument dans la console.
 	}
 }

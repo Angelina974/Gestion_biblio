@@ -1,9 +1,9 @@
 class UserRepository {
 	constructor() {
-		this.users = []; // Simulate a database
+		//Simule une base de données utilisateurs sous forme d'un tableau
 	}
 
 	get(userID) {
-		return this.users.find((user) => user.userID === userID);
+		// Retourne l'utilisateur dont l'identifiant est userID
 	}
 }

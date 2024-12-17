@@ -1,17 +1,17 @@
 class BookManager {
 	constructor(bookRepository) {
-		this.bookRepository = bookRepository;
+		// construit la base de données d'après l'objet bookRepository
 	}
 
 	getBook(bookID) {
-		// return this.bookRepository.get(bookID);
+		//  trouver un livre spécifique dans la base de données et le renvoyer
 	}
 
 	updateBook(book) {
-		this.bookRepository.update(book);
+		// dans la base de données du livre, trouve son id, et le met à jour
 	}
 
 	listAvailableBooks() {
-		return this.bookRepository.listAvailable();
+		// retourne la liste des livres dans la base de données
 	}
 }

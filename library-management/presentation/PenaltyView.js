@@ -4,7 +4,6 @@ class PenaltyView {
 	}
 
 	displayPenalties(userID) {
-		const penalties = this.penaltyService.getPenalties(userID);
-		console.log(penalties);
+		// Récupère et affiche les pénalités associées à un utilisateur donné.
 	}
 }
