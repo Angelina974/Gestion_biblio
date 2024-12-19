@@ -1,4 +1,4 @@
-Architecture en couches - Atelier
+# Architecture en couches - Atelier
 
 Réalisé par : CHAMANIER Enzo, GROSSI Julia, VITRAT Clément, LASSAL shun, FREGONESE Tom, CHATELAIN Dylan, LAFOSSE Manon
 
@@ -6,83 +6,89 @@ Pour ce projet nous avons répartis en couches, l'avantage est d'avoir une archi
 
 Nous avons séparés cette architecture en couches suivantes :
 
-1. Couche Présentation (le dossier : presentation)
-   La couche présentation est responsable de l'affichage des données et de l'interaction avec l'utilisateur. Elle ne contient aucune logique métier : elle appelle les services pour récupérer ou envoyer les informations nécessaires.
+## 1. Couche Présentation (le dossier : presentation qui constitue le front)
 
-Fichiers :
+La couche présentation est responsable de l'affichage des données et de l'interaction avec l'utilisateur. Elle ne contient aucune logique métier : elle appelle les services pour récupérer ou envoyer les informations nécessaires.
 
-BookView.js :
-Affiche les informations sur les livres (liste des livres, détails d'un livre). Interagit avec le BookManager pour récupérer ou mettre à jour les données.
+**Fichiers :**
 
-UserView.js :
-Affiche les informations sur les utilisateurs (liste des utilisateurs, profil d'un utilisateur). Communique avec le UserManager.
+- **BookView.js :**
+  Affiche les informations sur les livres (liste des livres, détails d'un livre). Interagit avec le BookManager pour récupérer ou mettre à jour les données.
 
-BorrowView.js :
-Gère l'affichage des emprunts (livres empruntés par un utilisateur, création d'un emprunt, retour d'un livre). Utilise le BorrowManager.
+- **UserView.js :**
+  Affiche les informations sur les utilisateurs (liste des utilisateurs, profil d'un utilisateur). Communique avec le UserManager.
 
-PenaltyView.js :
-Affiche et gère les pénalités (calcul des pénalités, affichage, paiement). Communique avec le PenaltyManager.
+- **BorrowView.js :**
+  Gère l'affichage des emprunts (livres empruntés par un utilisateur, création d'un emprunt, retour d'un livre). Utilise le BorrowManager.
 
-2. Couche Métier (le dossier business)
-   La couche métier contient toute la logique métier de l'application. Elle traite les données et applique les règles métiers spécifiques. Cette couche est intermédiaire entre la couche présentation et la couche données.
+- **PenaltyView.js :**
+  Affiche et gère les pénalités (calcul des pénalités, affichage, paiement). Communique avec le PenaltyManager.
 
-Fichiers :
+## 2. Couche Métier (le dossier business)
 
-BookManager.js :
-Contient la logique pour gérer les livres (ajout, modification, suppression, vérification de disponibilité). Communique avec le BookRepository.
+La couche métier contient toute la logique métier de l'application. Elle traite les données et applique les règles métiers spécifiques. Cette couche est intermédiaire entre la couche présentation et la couche données.
 
-UserManager.js :
-Gère la logique liée aux utilisateurs (ajouter, supprimer, rechercher un utilisateur). Fait appel au UserRepository.
+**Fichiers :**
 
-BorrowManager.js :
-Traite les emprunts (vérifie si un livre est disponible, enregistre un emprunt, retourne un livre). S'appuie sur BorrowRepository et BookRepository.
+- **BookManager.js :**
+  Contient la logique pour gérer les livres (ajout, modification, suppression, vérification de disponibilité). Communique avec le BookRepository.
 
-PenaltyManager.js :
-Contient la logique pour calculer et gérer les pénalités (retard de retour des livres). Utilise PenaltyRepository.
+- **UserManager.js :**
+  Gère la logique liée aux utilisateurs (ajouter, supprimer, rechercher un utilisateur). Fait appel au UserRepository.
 
-3. Couche Données (le dossier data)
-   La couche données est responsable de la gestion des accès aux données. Elle interagit directement avec la base de données ou une source de stockage, et expose des méthodes pour récupérer, insérer, mettre à jour ou supprimer les données.
+- **BorrowManager.js :**
+  Traite les emprunts (vérifie si un livre est disponible, enregistre un emprunt, retourne un livre). S'appuie sur BorrowRepository et BookRepository.
 
-Fichiers :
-BookRepository.js :
-Contient les méthodes pour accéder aux livres dans la base de données (obtenir un livre par ID, ajouter, supprimer, etc.).
+- **PenaltyManager.js :**
+  Contient la logique pour calculer et gérer les pénalités (retard de retour des livres). Utilise PenaltyRepository.
 
-UserRepository.js :
-Fournit les opérations pour accéder aux utilisateurs (ajouter un utilisateur, trouver par ID, supprimer).
+## 3. Couche Données (le dossier data)
 
-BorrowRepository.js :
-Gère l'accès aux données des emprunts (enregistrer un emprunt, obtenir les emprunts par utilisateur).
+La couche données est responsable de la gestion des accès aux données. Elle interagit directement avec la base de données ou une source de stockage, et expose des méthodes pour récupérer, insérer, mettre à jour ou supprimer les données.
 
-PenaltyRepository.js :
-Interagit avec les données des pénalités (calcul, mise à jour, suppression des pénalités).
+**Fichiers :**
 
-4. Couche Services (le dossier services)
-   La couche services permet d'organiser les interactions entre les managers de la couche métier lorsqu'une fonctionnalité nécessite plusieurs étapes complexes. Elle sert de point central pour certaines fonctionnalités globales.
+- **BookRepository.js :**
+  Contient les méthodes pour accéder aux livres dans la base de données (obtenir un livre par ID, ajouter, supprimer, etc.).
 
-Fichiers :
+- **UserRepository.js :**
+  Fournit les opérations pour accéder aux utilisateurs (ajouter un utilisateur, trouver par ID, supprimer).
 
-LibraryService.js :
-Coordonne les opérations générales de la bibliothèque (ex. gérer un emprunt complet : vérifier le livre, enregistrer l'emprunt, et mettre à jour la disponibilité du livre).
+- **BorrowRepository.js :**
+  Gère l'accès aux données des emprunts (enregistrer un emprunt, obtenir les emprunts par utilisateur).
 
-PenaltyService.js :
-Gère les opérations globales liées aux pénalités (calculer les pénalités pour plusieurs utilisateurs, apurer les pénalités).
+- **PenaltyRepository.js :**
+  Interagit avec les données des pénalités (calcul, mise à jour, suppression des pénalités).
 
-5. Couche Modèles (le dossier models)
-   La couche modèles contient les entités métiers sous forme d'objets. Ces entités représentent les données de base utilisées dans l'application.
+## 4. Couche Services (le dossier services)
 
-Fichiers :
+La couche services permet d'organiser les interactions entre les managers de la couche métier lorsqu'une fonctionnalité nécessite plusieurs étapes complexes. Elle sert de point central pour certaines fonctionnalités globales.
 
-Book.js :
-Modèle représentant un livre avec ses propriétés (ex. titre, auteur, statut de disponibilité).
+**Fichiers :**
 
-User.js :
-Modèle représentant un utilisateur avec ses informations (ex. nom, identifiant, nombre de livres empruntés).
+- **LibraryService.js :**
+  Coordonne les opérations générales de la bibliothèque (ex. gérer un emprunt complet : vérifier le livre, enregistrer l'emprunt, et mettre à jour la disponibilité du livre).
 
-Borrow.js :
-Modèle représentant un emprunt, contenant les liens entre un utilisateur et un livre, ainsi que les dates d'emprunt/retour.
+- **PenaltyService.js :**
+  Gère les opérations globales liées aux pénalités (calculer les pénalités pour plusieurs utilisateurs, apurer les pénalités).
 
-Penalty.js :
-Modèle représentant une pénalité avec les détails du retard (ex. montant, utilisateur concerné, statut payé/non payé).
+## 5. Couche Modèles (le dossier models)
+
+La couche modèles contient les entités métiers sous forme d'objets. Ces entités représentent les données de base utilisées dans l'application.
+
+**Fichiers :**
+
+- **Book.js :**
+  Modèle représentant un livre avec ses propriétés (ex. titre, auteur, statut de disponibilité).
+
+- **User.js :**
+  Modèle représentant un utilisateur avec ses informations (ex. nom, identifiant, nombre de livres empruntés).
+
+- **Borrow.js :**
+  Modèle représentant un emprunt, contenant les liens entre un utilisateur et un livre, ainsi que les dates d'emprunt/retour.
+
+- **Penalty.js :**
+  Modèle représentant une pénalité avec les détails du retard (ex. montant, utilisateur concerné, statut payé/non payé).
 
 Prenons un exemple :
 
